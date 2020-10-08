@@ -15,7 +15,7 @@ Dashboard
                 <div class="card-body">
                     <h5 class="card-title">Teacher Name<span class="card-title-helper"></span></h5>
                     <div class="savings-stats">
-                        <h5>Teacher's Full Name</h5>
+                        <h5>{{ Auth::user()->name }}</h5>
                         <!-- <span>My participation w.r.t total activities.</span> -->
                     </div>
                 </div>
@@ -26,8 +26,10 @@ Dashboard
                 <div class="card-body">
                     <h5 class="card-title">School Name<span class="card-title-helper"></span></h5>
                     <div class="savings-stats">
-                        <h5>Witty International</h5>
+                        @if(!empty($schoolDetails[0]))
+                        <h5>{{ $schoolDetails[0]->amd_school }}</h5>
                         <!-- <span>Points achieved so far.</span> -->
+                        @endif
                     </div>
                 </div>
             </div>
@@ -37,8 +39,10 @@ Dashboard
                 <div class="card-body">
                     <h5 class="card-title">School Type<span class="card-title-helper"></span></h5>
                     <div class="savings-stats">
-                        <h5>Private</h5>
+                        @if(!empty($schoolDetails[0]))
+                        <h5>{{ $schoolDetails[0]->amd_school_type }}</h5>
                         <!-- <span>Total activities conducted so far.</span> -->
+                        @endif
                     </div>
                 </div>
             </div>
@@ -58,7 +62,7 @@ Dashboard
                         </div>
                         
                         <div class="server-stat col-sm-3">
-                            <p>0</p>
+                            <p> @if(!empty(Auth::user()->batch)) {{ Auth::user()->batch }} @endif</p>
                             <span>Teaching Level</span>
                         </div>
                         <div class="server-stat col-sm-3">
@@ -66,7 +70,9 @@ Dashboard
                             <span> Teaching Grade</span>
                         </div>
                         <div class="server-stat col-sm-3">
-                            <p>Marathi</p>
+                            @if(!empty($schoolDetails[0]))
+                            <p>{{ $schoolDetails[0]->amd_medium }}</p>
+                            @endif
                             <span>Teaching Medium</span>
                         </div>
                     </div>

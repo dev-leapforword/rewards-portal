@@ -31,8 +31,10 @@ Profile
                                     <span>From <a href="#">{{ $schoolDetails[0]->amd_taluka }}, {{ $schoolDetails[0]->amd_district }}</a></span>
                                 </li>
                             @endif                            
-                            <li><i class="material-icons">rss_feed</i><span>Batch Details: <a
-                                        href="#">@if(!empty(Auth::user()->batch)){{ Auth::user()->batch }}@endif</a></span></li>
+                            <li>
+                                <i class="material-icons">rss_feed</i>
+                                <span>Batch Details: <a href="#">@if(!empty(Auth::user()->batch)){{ Auth::user()->batch }}@endif</a></span>
+                            </li>
                             <!-- <li>
                                 <button class="btn btn-block btn-primary m-t-lg">Follow</button>
                                 <button class="btn btn-block btn-secondary m-t-lg">Message</button>

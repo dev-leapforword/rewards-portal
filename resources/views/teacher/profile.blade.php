@@ -42,7 +42,9 @@ Profile
                             </li>
                             <li><i class="material-icons">home</i><span>Lives in <a href="#">City, Pin
                                         Code</a></span></li>
-                            <li><i class="material-icons">local_phone</i><span>+91 00000 00000</span>
+                            <li><i class="material-icons">local_phone</i><span>+91 @if(!empty(Auth::user()->whatsappNumber)){{ Auth::user()->whatsappNumber }} @endif</span>
+                            </li>
+                            <li><i class="material-icons">local_phone</i><span>+91 @if(!empty(Auth::user()->callingNumber)){{ Auth::user()->callingNumber }} @endif</span>
                             </li>
                             <li><i class="material-icons"></i><span> </span>
                             </li>

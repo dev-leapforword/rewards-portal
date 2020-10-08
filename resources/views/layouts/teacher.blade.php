@@ -84,7 +84,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img src="{{ asset('assets/images/avatars/profile-image-1.png') }}" alt="profile image">
-                                <span>UserName</span><i class="material-icons dropdown-icon">keyboard_arrow_down</i>
+                                <span>{{ Auth::user()->name }}</span><i class="material-icons dropdown-icon">keyboard_arrow_down</i>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"

@@ -30,6 +30,8 @@ Route::get('studentMain', function () {
 
 Route::get('/studentLogin', 'Auth\LoginController@studentLogin')->name('studentLogin');
 
+Route::post('/studentLoginFrom', 'Auth\LoginController@studentLoginForm')->name('studentLoginForm');
+
 Route::get('/studentRegister', function () {
     return view('auth.studentRegister');
 });
@@ -38,15 +40,15 @@ Route::get('/teacherMain', function () {
     return view('auth.teacherMain');
 });
 
-Route::get('/teacherLogin', function () {
-    return view('auth.teacherLogin');
-});
+Route::get('/teacherLogin', 'Auth\LoginController@teacherLogin')->name('teacherLogin');
+
+Route::post('/teacherLoginFrom', 'Auth\LoginController@teacherLoginForm')->name('teacherLoginForm');
 
 Route::get('/teacherRegister', function () {
     return view('auth.teacherRegister');
 });
 
-Route::post('/studentLoginFrom', 'Auth\LoginController@studentLoginForm')->name('studentLoginForm');
+
 
 Route::group(['middleware' => ['auth', 'student']], function () {
     Route::get('/studentIndex', 'Student\StudentController@index')->name('studentIndex');
@@ -56,18 +58,14 @@ Route::group(['middleware' => ['auth', 'student']], function () {
     Route::get('/studentActivities', 'Student\StudentController@activities')->name('studentActivities');
 });
 
+
+
 Route::group(['middleware' => ['auth', 'teacher']], function () {
-    Route::get('/teacherIndex', function () {
-        return view('teacher.index');
-    });
+    Route::get('/teacherIndex', 'Teacher\TeacherController@index')->name('teacherIndex');
     
-    Route::get('/teacherProfile', function () {
-        return view('teacher.profile');
-    });
+    Route::get('/teacherProfile', 'Teacher\TeacherController@profile')->name('teacherProfile');
     
-    Route::get('/teacherActivities', function () {
-        return view('teacher.activities');
-    });
+    Route::get('/teacherActivities', 'Teacher\TeacherController@activities')->name('teacherActivities');
 });
 
 Route::group(['middleware' => ['auth', 'admin']], function () {

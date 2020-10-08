@@ -48,9 +48,17 @@ class LoginController extends Controller
 
     public function studentLogin(){
         if (Auth::check()){
-            return view('student.index');
+            return redirect(route('studentIndex'));
         } else {
             return view('auth.studentLogin');
+        }
+    }
+
+    public function teacherLogin(){
+        if (Auth::check()){
+            return redirect(route('teacherIndex'));
+        } else {
+            return view('auth.teacherLogin');
         }
     }
 
@@ -58,7 +66,7 @@ class LoginController extends Controller
         // dd($request);
 
         if (Auth::check()){
-            return view('student.index');
+            return redirect(route('studentIndex'));
         } else {
             $rollno = $request->post('rollno');
 
@@ -73,6 +81,30 @@ class LoginController extends Controller
                 return redirect()->back()->with('fail', 'Roll Number Not Found');
             }
 
+        }
+    }
+
+    public function teacherLoginForm(Request $request){
+        // dd($request);
+
+        $wanumber = $request->post('wanumber');
+        $panumber = $request->post('panumber');
+
+        if ($wanumber === $panumber) {
+            if (Auth::check()){
+                return redirect(route('teacherIndex'));
+            } else {
+                $user = User::where([['whatsappNumber', '=', $wanumber]])->first();
+                if ($user) {
+                    Auth::login($user, true);                
+                    return redirect(route('teacherIndex'));
+                } else {
+                    return redirect()->back()->with('fail', 'Whatsapp Number Not Found');
+                }
+            }
+        }
+        else{
+            return redirect()->back()->with('fail', 'Entered Number & Password Does Not Matched');   
         }
     }
 }

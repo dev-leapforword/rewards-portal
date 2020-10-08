@@ -46,11 +46,17 @@
                             <a href="../teacherLogin" class="active">Login</a>
                             <a href="../teacherRegister">Register</a>
                         </div>
-                        <form>
-                            <input class="form-control" type="number" name="rollno" placeholder="Enter your Mobile No."
+                        <form action="../teacherLoginFrom" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            @if (\Session::has('fail'))
+                                <div class="alert alert-danger">
+                                    <h5>{!! \Session::get('fail') !!}</h5>
+                                </div>
+                            @endif
+                            <input class="form-control" type="number" name="wanumber" placeholder="Enter your Whatsapp No."
                                 required>
-                            <input class="form-control" type="password" name="teacherpassword"
-                                placeholder="Enter your Password" required>
+                            <input class="form-control" type="password" name="panumber"
+                                placeholder="Enter your Whatsapp No." required>
 
                             <div class="form-button">
                                 <button id="submit" type="submit" class="ibtn">Login</button>

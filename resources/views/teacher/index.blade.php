@@ -56,20 +56,20 @@ Dashboard
                     <h5 class="card-title">Teacher Details<span class="card-title-helper"></span>
                     </h5>
                     <div class="server-load row">
-                        <div class="server-stat col-sm-3">
-                            <p>0</p>
-                            <span>Teacher's Rank</span>
-                        </div>
+                        <!-- <div class="server-stat col-sm-3"> -->
+                            <!-- <p>0</p> -->
+                            <!-- <span>Teacher's Rank</span> -->
+                        <!-- </div> -->
                         
-                        <div class="server-stat col-sm-3">
-                            <p> @if(!empty(Auth::user()->batch)) {{ Auth::user()->batch }} @endif</p>
+                        <div class="server-stat col-sm-4">
+                            <p> @if(Auth::user()->level == 1) Reading @elseif(Auth::user()->level == 2) Grammar @else Both @endif</p>
                             <span>Teaching Level</span>
                         </div>
-                        <div class="server-stat col-sm-3">
+                        <div class="server-stat col-sm-4">
                             <p>0</p>
                             <span> Teaching Grade</span>
                         </div>
-                        <div class="server-stat col-sm-3">
+                        <div class="server-stat col-sm-4">
                             @if(!empty($schoolDetails[0]))
                             <p>{{ $schoolDetails[0]->amd_medium }}</p>
                             @endif

@@ -48,15 +48,25 @@ Profile
                     <div class="card-body">
                         <h5 class="card-title">Contact Info</h5>
                         <ul class="list-unstyled profile-about-list">
-                            <li><i class="material-icons">mail_outline</i><span>email@domain.com</span>
+                            <li>
+                                <i class="material-icons">mail_outline</i>
+                                <span>email@domain.com</span>
                             </li>
-                            <li><i class="material-icons">home</i><span>Lives in <a href="#">City, Pin
-                                        Code</a></span></li>
-                            <li><i class="material-icons">local_phone</i><span>+91 @if(!empty(Auth::user()->whatsappNumber)){{ Auth::user()->whatsappNumber }} @endif</span>
+                            <li>
+                                <i class="material-icons">home</i>
+                                <span>Lives in <a href="#">City, PinCode</a></span>
                             </li>
-                            <li><i class="material-icons">local_phone</i><span>+91 @if(!empty(Auth::user()->callingNumber)){{ Auth::user()->callingNumber }} @endif</span>
+                            <li>
+                                <i class="material-icons">local_phone</i>
+                                <span>+91 @if(!empty(Auth::user()->whatsappNumber)){{ Auth::user()->whatsappNumber }} @endif</span>
                             </li>
-                            <li><i class="material-icons"></i><span> </span>
+                            <li>
+                                <i class="material-icons">local_phone</i>
+                                <span>+91 @if(!empty(Auth::user()->callingNumber)){{ Auth::user()->callingNumber }} @endif</span>
+                            </li>
+                            <li>
+                                <i class="material-icons"></i>
+                                <span></span>
                             </li>
                         </ul>
                     </div>

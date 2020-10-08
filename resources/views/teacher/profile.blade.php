@@ -68,32 +68,46 @@ Profile
                             <thead>
                                 <tr>
                                     <th>Grade</th>
-                                    <th>1st, 2nd, 3rd, 4th</th>
-                                    <th>5th, 6th, 7th,8th, 9th, 10th</th>
-                                    
+                                    @if( Auth::user()->level == 1 || Auth::user()->level == 3) 
+                                        <th>1st, 2nd, 3rd, 4th</th>
+                                    @endif
+
+                                    @if( Auth::user()->level == 2 || Auth::user()->level == 3) 
+                                        <th>5th, 6th, 7th,8th, 9th, 10th</th>  
+                                    @endif                           
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>Total Students</td>
-                                    <td> {{ Auth::user()->countReading }} </td>
-                                    <td> {{ Auth::user()->countGrammar }} </td>
-                                    
+                                    @if( Auth::user()->level == 1 || Auth::user()->level == 3) 
+                                        <td> {{ Auth::user()->countReading }} </td>
+                                    @endif
+
+                                    @if( Auth::user()->level == 2 || Auth::user()->level == 3) 
+                                        <td> {{ Auth::user()->countGrammar }} </td>
+                                    @endif                                   
                                 </tr>
                                 <tr>
                                     <td>Registered Students</td>
-                                    <td>{{ $readingCountRegistredStudent }}</td>
-                                    <td>{{ $grammarCountRegistredStudent }}</td>
-                                    
+                                    @if( Auth::user()->level == 1 || Auth::user()->level == 3) 
+                                        <td>{{ $readingCountRegistredStudent }}</td>
+                                    @endif
+
+                                    @if( Auth::user()->level == 2 || Auth::user()->level == 3) 
+                                        <td>{{ $grammarCountRegistredStudent }}</td>
+                                    @endif
                                 </tr>
                                 <tr>
                                     <td>Total Points</td>
-                                    <td></td>
-                                    <td></td>
-                                    
+                                    @if( Auth::user()->level == 1 || Auth::user()->level == 3) 
+                                        <td></td>
+                                    @endif
+
+                                    @if( Auth::user()->level == 2 || Auth::user()->level == 3) 
+                                        <td></td>
+                                    @endif
                                 </tr>
-                                
-                    
                             </tbody>
                             
                         </table>
@@ -113,20 +127,35 @@ Profile
                             <thead>
                                 <tr>
                                     <th></th>
-                                    <th>1st, 2nd, 3rd, 4th</th>
-                                    <th>5th, 6th, 7th,8th, 9th, 10th</th>
+                                    @if( Auth::user()->level == 1 || Auth::user()->level == 3) 
+                                        <th>1st, 2nd, 3rd, 4th</th>
+                                    @endif
+
+                                    @if( Auth::user()->level == 2 || Auth::user()->level == 3) 
+                                        <th>5th, 6th, 7th,8th, 9th, 10th</th>  
+                                    @endif
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>In your Batch</td>
-                                    <td></td>
-                                    <td></td>                                    
+                                    @if( Auth::user()->level == 1 || Auth::user()->level == 3) 
+                                        <td></td>
+                                    @endif
+
+                                    @if( Auth::user()->level == 2 || Auth::user()->level == 3) 
+                                        <td></td>
+                                    @endif                                    
                                 </tr>
                                 <tr>
                                     <td>Across Maharashtra</td>
-                                    <td></td>
-                                    <td></td>                                    
+                                    @if( Auth::user()->level == 1 || Auth::user()->level == 3) 
+                                        <td></td>
+                                    @endif
+
+                                    @if( Auth::user()->level == 2 || Auth::user()->level == 3) 
+                                        <td></td>
+                                    @endif                                    
                                 </tr>                           
                     
                             </tbody>                            

@@ -66,7 +66,7 @@ Dashboard
                             <span>Teaching Level</span>
                         </div>
                         <div class="server-stat col-sm-4">
-                            <p>0</p>
+                            <p>@if(!empty(Auth::user()->standard)) {{ Auth::user()->standard }} @endif</p>
                             <span> Teaching Grade</span>
                         </div>
                         <div class="server-stat col-sm-4">

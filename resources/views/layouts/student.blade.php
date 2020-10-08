@@ -49,7 +49,7 @@
         <div class="page-sidebar">
             <center> <img src="{{ asset('assets/images/logo.png') }}" width="100px" height="100px"></center>
             <div class="logo-box">
-                <a href="index.html" class="logo-text"> LeapForWord </a>
+                <a href="../studentIndex" class="logo-text"> LeapForWord </a>
                 <a href="#" id="sidebar-close"><i class="material-icons">close</i></a> 
                 <a href="#" id="sidebar-state"><i class="material-icons">adjust</i><i class="material-icons compact-sidebar-icon">panorama_fish_eye</i></a>
             </div>

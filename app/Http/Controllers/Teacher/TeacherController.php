@@ -78,7 +78,10 @@ class TeacherController extends Controller
 
     public function activities(Request $request){
         if (Auth::check()){
+
             
+
+            return view('teacher.activities');
         }
         else{
             return view('auth.teacherLogin');
